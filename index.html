@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FracTek - Innovative Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- marked.js CDN for rendering Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d1117; /* GitHub dark bg */
+            color: #c9d1d9; /* GitHub dark text */
+        }
+        h2, h3, .gradient-text, .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #E5E7EB, #9CA3AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Styles for rendered markdown content */
+        .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+            font-weight: 700; margin-top: 1.75em; margin-bottom: 0.75em;
+        }
+        .markdown-content h1 { font-size: 2.25rem; }
+        .markdown-content h2 { font-size: 1.875rem; }
+        .markdown-content h3 { font-size: 1.5rem; }
+        .markdown-content p { margin-bottom: 1.25em; line-height: 1.7; color: #9ca3af; /* Gray-400 */ }
+        .markdown-content a { color: #60a5fa; text-decoration: underline; font-weight: 500; }
+        .markdown-content a:hover { color: #3b82f6; }
+        .markdown-content ul, .markdown-content ol { margin-left: 1.5rem; margin-bottom: 1.25em; list-style-position: outside; }
+        .markdown-content li { margin-bottom: 0.5em; }
+        .markdown-content code {
+            background-color: #161b22; /* GitHub dark code bg */
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 6px;
+            font-family: monospace;
+            border: 1px solid #30363d;
+        }
+        .markdown-content pre {
+            background-color: #161b22;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+        }
+        .markdown-content pre code {
+            padding: 0; margin: 0; font-size: 100%; border: none;
+        }
+        .markdown-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.25em; }
+        .markdown-content th, .markdown-content td { border: 1px solid #30363d; padding: 0.75em; }
+        .markdown-content th { background-color: #161b22; font-weight: 600; }
+        .markdown-content blockquote { border-left: 4px solid #30363d; padding-left: 1em; margin-left: 0; color: #8b949e; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-950/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-40 border-b border-gray-800">
+        <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <img src="/images/logo.png" alt="FracTek Logo" class="h-8 w-8">
+                        <span class="text-2xl font-bold gradient-text">FracTek</span>
+                    </a>
+                </div>
+                <!-- Nav -->
+                <div class="flex items-center">
+                     <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                        <a href="#" class="doc-link text-slate-300 hover:text-white transition-colors" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/index.md">Overview</a>
+                        <a href="#" class="doc-link text-slate-300 hover:text-white transition-colors" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/installation.md">Installation</a>
+                        <a href="#" class="doc-link text-slate-300 hover:text-white transition-colors" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/contributing.md">Contributing</a>
+                        <a href="#" class="doc-link text-slate-300 hover:text-white transition-colors" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/modules.md">Modules Guide</a>
+                        <a href="https://github.com/thynash/fractek" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors" aria-label="GitHub Repository">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                        </a>
+                    </nav>
+                     <!-- Mobile Menu Button -->
+                     <button id="mobile-menu-btn" class="md:hidden ml-4 text-slate-300 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 right-0 z-30 bg-gray-950 border-b border-gray-800 p-4">
+        <a href="#" class="doc-link block py-2 px-2 rounded text-sm font-medium text-slate-300 hover:bg-gray-800" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/index.md">Overview</a>
+        <a href="#" class="doc-link block py-2 px-2 rounded text-sm font-medium text-slate-300 hover:bg-gray-800" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/installation.md">Installation</a>
+        <a href="#" class="doc-link block py-2 px-2 rounded text-sm font-medium text-slate-300 hover:bg-gray-800" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/contributing.md">Contributing</a>
+        <a href="#" class="doc-link block py-2 px-2 rounded text-sm font-medium text-slate-300 hover:bg-gray-800" data-md-url="https://raw.githubusercontent.com/thynash/fractek/main/docs/modules.md">Modules Guide</a>
+        <a href="https://github.com/thynash/fractek" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 block py-2 px-2 rounded text-sm font-medium text-slate-300 hover:bg-gray-800 mt-2 border-t border-gray-800 pt-3">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            <span>GitHub</span>
+        </a>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex">
+            <!-- Main content -->
+            <main id="main-content" class="flex-1 py-10 lg:pl-10">
+                <div class="max-w-3xl mx-auto xl:max-w-none xl:ml-0 xl:mr-64">
+                    <article id="doc-content-container" class="markdown-content">
+                        <!-- Markdown will be rendered here -->
+                        <div class="text-center py-20">
+                            <p class="text-slate-400">Loading documentation...</p>
+                        </div>
+                    </article>
+                </div>
+            </main>
+
+            <!-- Right sidebar (Table of Contents) -->
+            <aside class="hidden xl:block fixed top-16 right-0 w-64 h-full py-10 pr-6">
+                <div class="space-y-4">
+                    <h3 class="font-semibold text-slate-300">On this page</h3>
+                    <div id="toc-container">
+                        <!-- Table of contents will be generated here -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const docContentContainer = document.getElementById('doc-content-container');
+            const tocContainer = document.getElementById('toc-container');
+            const docLinks = document.querySelectorAll('.doc-link');
+            
+            // Mobile dropdown
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            marked.setOptions({ headerIds: true, mangle: false });
+
+            // --- Toggle Menus ---
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            
+            // --- Generate Table of Contents ---
+            const generateToc = () => {
+                tocContainer.innerHTML = ''; // Clear previous TOC
+                const headings = docContentContainer.querySelectorAll('h2, h3');
+                if (headings.length === 0) {
+                    tocContainer.innerHTML = '<p class="text-sm text-slate-500">No sections found.</p>';
+                    return;
+                }
+                const tocList = document.createElement('ul');
+                tocList.className = 'space-y-2 text-sm';
+                headings.forEach(heading => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.textContent = heading.textContent;
+                    link.href = `#${heading.id}`;
+                    link.className = 'block text-slate-400 hover:text-slate-200 transition-colors';
+                    if (heading.tagName === 'H3') {
+                        link.classList.add('pl-4');
+                    }
+                    listItem.appendChild(link);
+                    tocList.appendChild(listItem);
+                });
+                tocContainer.appendChild(tocList);
+            };
+
+            // --- Load Markdown Content ---
+            const loadMarkdown = async (url, activeLink) => {
+                docContentContainer.innerHTML = '<div class="text-center py-20"><p class="text-slate-400">Loading documentation...</p></div>';
+                tocContainer.innerHTML = '';
+                
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const markdownText = await response.text();
+                    docContentContainer.innerHTML = marked.parse(markdownText);
+                    generateToc();
+                    
+                    // Update active link style
+                    docLinks.forEach(l => l.classList.remove('text-white', 'font-bold'));
+                    if(activeLink) activeLink.classList.add('text-white', 'font-bold');
+
+                } catch (error) {
+                    console.error("Error fetching markdown:", error);
+                    docContentContainer.innerHTML = `<div class="text-center py-10"><p class="text-red-400">Failed to load content. Please check the URL and your browser's console.</p></div>`;
+                }
+            };
+            
+            // --- Attach click event listeners to all doc links ---
+            docLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.dataset.mdUrl;
+                    loadMarkdown(url, link);
+                    // Hide mobile menu after clicking a link
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Load initial page (Overview) ---
+            const initialLink = document.querySelector('.doc-link');
+            if (initialLink) {
+                loadMarkdown(initialLink.dataset.mdUrl, initialLink);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
